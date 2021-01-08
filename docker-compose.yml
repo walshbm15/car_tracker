@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  # Postgres database
+  postgres:
+    image: postgres:12-alpine
+    ports: ["${PG_EXTERNAL_PORT:-5432}:5432"]
+    restart: always
+    environment:
+      POSTGRES_DB: "${PG_DB_NAME:-car_tracker}"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+
+volumes:
+  pgdata:

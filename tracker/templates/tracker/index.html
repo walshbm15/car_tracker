@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    {% if latest_car_list %}
+        <ul>
+        {% for car in latest_car_list %}
+            <li><a href="{% url 'tracker:detail' car.id %}">{{ car.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No cars are available.</p>
+    {% endif %}
+  </body>
+</html>

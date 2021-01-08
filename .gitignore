@@ -1,1 +1,3 @@
-virtualenv/
+# virtual env
+ve/
+__pycache__/

@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <h1>{{ car.name }}</h1>
+    <ul>
+    {% for service in car.service_set.all %}
+        <li>{{ service.service }}</li>
+    {% endfor %}
+    </ul>
+
+    <form action="{% url 'tracker:add' car.id %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="service" id="service_name" >
+      <input type="submit" value="Add">
+    </form>
+  </body>
+</html>
